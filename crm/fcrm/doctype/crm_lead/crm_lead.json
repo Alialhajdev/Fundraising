@@ -141,7 +141,7 @@
   {
    "fieldname": "mobile_no",
    "fieldtype": "Data",
-   "label": "Mobile No.",
+   "label": "Phone No.",
    "options": "Phone"
   },
   {

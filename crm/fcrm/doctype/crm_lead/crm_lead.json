@@ -31,6 +31,22 @@
   "job_title",
   "source",
   "lead_owner",
+
+  "funding_opportunity_tab",
+  "date_identified",
+  "opportunity_call",
+  "donor_partner",
+  "donor_partner_type",
+  "theme_sector",
+  "geography",
+  "deadline",
+  "funding_amount",
+  "source_link",
+  "potential_yldf_relevance",
+  "identified_by",
+  "initial_status",
+  "funding_notes",
+
   "organization_tab",
   "section_break_uixv",
   "naming_series",
@@ -78,7 +94,7 @@
   "lost_details_tab",
   "lost_reason",
   "lost_notes"
- ],
+],
  "fields": [
   {
    "default": "CRM-LEAD-.YYYY.-",
@@ -93,6 +109,85 @@
    "label": "Salutation",
    "options": "Salutation"
   },
+
+{
+  "fieldname": "funding_opportunity_tab",
+  "fieldtype": "Tab Break",
+  "label": "Funding Opportunity"
+},
+{
+  "fieldname": "date_identified",
+  "fieldtype": "Date",
+  "label": "Date Identified"
+},
+{
+  "fieldname": "opportunity_call",
+  "fieldtype": "Data",
+  "label": "Opportunity / Call"
+},
+{
+  "fieldname": "donor_partner",
+  "fieldtype": "Link",
+  "label": "Donor / Partner",
+  "options": "CRM Organization"
+},
+{
+  "fieldname": "donor_partner_type",
+  "fieldtype": "Select",
+  "label": "Type",
+  "options": "Donor\nPartner"
+},
+{
+  "fieldname": "theme_sector",
+  "fieldtype": "Data",
+  "label": "Theme / Sector"
+},
+{
+  "fieldname": "geography",
+  "fieldtype": "Data",
+  "label": "Geography"
+},
+{
+  "fieldname": "deadline",
+  "fieldtype": "Date",
+  "label": "Deadline"
+},
+{
+  "fieldname": "funding_amount",
+  "fieldtype": "Currency",
+  "label": "Funding Amount",
+  "non_negative": 1
+},
+{
+  "fieldname": "source_link",
+  "fieldtype": "Data",
+  "label": "Source / Link",
+  "options": "URL"
+},
+{
+  "fieldname": "potential_yldf_relevance",
+  "fieldtype": "Select",
+  "label": "Potential YLDF Relevance",
+  "options": "High\nMedium\nLow"
+},
+{
+  "fieldname": "identified_by",
+  "fieldtype": "Link",
+  "label": "Identified By",
+  "options": "Employee"
+},
+{
+  "fieldname": "initial_status",
+  "fieldtype": "Small Text",
+  "label": "Initial Status"
+},
+{
+  "fieldname": "funding_notes",
+  "fieldtype": "Small Text",
+  "label": "Notes"
+},
+
+  
   {
    "fieldname": "first_name",
    "fieldtype": "Data",

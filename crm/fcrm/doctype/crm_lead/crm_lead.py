@@ -89,18 +89,21 @@ class CRMLead(Document):
 		self.set_sla()
 
 	def validate(self):
-		self.validate_status()
-		self.set_full_name()
-		self.set_lead_name()
-		self.set_title()
-		self.validate_email()
-		self.validate_lost_reason()
-		guard_doc_recipient_change(self)
-		if not self.is_new() and self.has_value_changed("lead_owner") and self.lead_owner:
-			self.share_with_agent(self.lead_owner)
-			self.assign_agent(self.lead_owner)
-		if self.has_value_changed("status"):
-			add_status_change_log(self)
+    self.validate_status()
+    self.set_full_name()
+    self.set_lead_name()
+    self.set_title()
+    self.set_analysis_score()
+    self.validate_email()
+    self.validate_lost_reason()
+    guard_doc_recipient_change(self)
+
+    if not self.is_new() and self.has_value_changed("lead_owner") and self.lead_owner:
+        self.share_with_agent(self.lead_owner)
+        self.assign_agent(self.lead_owner)
+
+    if self.has_value_changed("status"):
+        add_status_change_log(self)
 
 	def after_insert(self):
 		if self.lead_owner:
@@ -115,7 +118,30 @@ class CRMLead(Document):
 
 	def before_save(self):
 		self.apply_sla()
+def set_analysis_score(self):
+    score_fields = [
+        "strategic_fit",
+        "eligibility",
+        "programmatic_fit",
+        "geographic_fit",
+        "partnership_modality",
+        "funding_budget_fit",
+        "yldf_capacity",
+        "deadline_feasibility",
+    ]
 
+    self.overall_score = sum(
+        int(self.get(fieldname) or 0)
+        for fieldname in score_fields
+    )
+
+    if self.overall_score >= 32:
+        self.priority = "High priority"
+    elif self.overall_score >= 24:
+        self.priority = "Potential / discuss"
+    else:
+        self.priority = "Low priority"
+		
 	def validate_status(self):
 		if self.is_new() and not self.status:
 			if frappe.db.exists("CRM Lead Status", "New"):

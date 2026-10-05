@@ -46,7 +46,26 @@
   "identified_by",
   "initial_status",
   "funding_notes",
-
+"analysis_section",
+"strategic_fit",
+"eligibility",
+"programmatic_fit",
+"geographic_fit",
+"partnership_modality",
+"funding_budget_fit",
+"yldf_capacity",
+"deadline_feasibility",
+"overall_score",
+"priority",
+"recommendation",
+"lead_person",
+"next_action",
+"decision_deadline",
+"analysis_status",
+"competition_risk",
+"key_rationale",
+"analysis_source_link",
+ 
   "organization_tab",
   "section_break_uixv",
   "naming_series",
@@ -133,7 +152,7 @@
 },
 {
   "fieldname": "donor_partner_type",
-  "fieldtype": "Select",
+  "fieldtype": "Data",
   "label": "Type",
   "options": "Donor\nPartner"
 },
@@ -186,7 +205,115 @@
   "fieldtype": "Small Text",
   "label": "Notes"
 },
-
+{
+  "fieldname": "analysis_section",
+  "fieldtype": "Section Break",
+  "label": "Analysis"
+},
+{
+  "fieldname": "strategic_fit",
+  "fieldtype": "Select",
+  "label": "Strategic Fit",
+  "options": "1\n2\n3\n4\n5"
+},
+{
+  "fieldname": "eligibility",
+  "fieldtype": "Select",
+  "label": "Eligibility",
+  "options": "1\n2\n3\n4\n5"
+},
+{
+  "fieldname": "programmatic_fit",
+  "fieldtype": "Select",
+  "label": "Programmatic Fit",
+  "options": "1\n2\n3\n4\n5"
+},
+{
+  "fieldname": "geographic_fit",
+  "fieldtype": "Select",
+  "label": "Geographic Fit",
+  "options": "1\n2\n3\n4\n5"
+},
+{
+  "fieldname": "partnership_modality",
+  "fieldtype": "Select",
+  "label": "Partnership Modality",
+  "options": "1\n2\n3\n4\n5"
+},
+{
+  "fieldname": "funding_budget_fit",
+  "fieldtype": "Select",
+  "label": "Funding / Budget Fit",
+  "options": "1\n2\n3\n4\n5"
+},
+{
+  "fieldname": "yldf_capacity",
+  "fieldtype": "Select",
+  "label": "YLDF Capacity",
+  "options": "1\n2\n3\n4\n5"
+},
+{
+  "fieldname": "deadline_feasibility",
+  "fieldtype": "Select",
+  "label": "Deadline Feasibility",
+  "options": "1\n2\n3\n4\n5"
+},
+{
+  "fieldname": "overall_score",
+  "fieldtype": "Int",
+  "label": "Overall Score",
+  "read_only": 1
+},
+{
+  "fieldname": "priority",
+  "fieldtype": "Select",
+  "label": "Priority",
+  "options": "High priority\nPotential / discuss\nLow priority",
+  "read_only": 1
+},
+{
+  "fieldname": "recommendation",
+  "fieldtype": "Small Text",
+  "label": "Recommendation"
+},
+{
+  "fieldname": "lead_person",
+  "fieldtype": "Link",
+  "label": "Lead Person",
+  "options": "Employee"
+},
+{
+  "fieldname": "next_action",
+  "fieldtype": "Small Text",
+  "label": "Next Action"
+},
+{
+  "fieldname": "decision_deadline",
+  "fieldtype": "Date",
+  "label": "Decision Deadline"
+},
+{
+  "fieldname": "analysis_status",
+  "fieldtype": "Select",
+  "label": "Status",
+  "options": "New\nEligibility check\nUrgent / conditional\nTime-critical\nNext cycle\nPaused / monitor\nIn development\nSubmitted\nClosed"
+},
+{
+  "fieldname": "competition_risk",
+  "fieldtype": "Small Text",
+  "label": "Competition / Risk"
+},
+{
+  "fieldname": "key_rationale",
+  "fieldtype": "Small Text",
+  "label": "Key Rationale"
+},
+{
+  "fieldname": "analysis_source_link",
+  "fieldtype": "Data",
+  "label": "Source / Link",
+  "options": "URL"
+},
   
   {
    "fieldname": "first_name",

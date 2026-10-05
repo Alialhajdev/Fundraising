@@ -62,17 +62,23 @@
       class="flex flex-1 overflow-hidden flex-col [&_[role='tab']]:px-0 [&_[role='tab']]:shrink-0 [&_[role='tablist']]:px-5 [&_[role='tablist']::-webkit-scrollbar]:h-0 [&_[role='tablist']]:min-h-[45px] [&_[role='tablist']]:gap-7.5 [&_[role='tabpanel']:not([hidden])]:flex [&_[role='tabpanel']:not([hidden])]:grow"
     >
       <template #tab-panel>
-        <Activities
-          ref="activities"
-          v-model:reload="reload"
-          v-model:tabIndex="tabIndex"
-          doctype="CRM Lead"
-          :docname="leadId"
-          :tabs="tabs"
-          @beforeSave="beforeStatusChange"
-          @afterSave="reloadResources"
-        />
-      </template>
+  <Analysis
+    v-if="tabs[tabIndex]?.name === 'Analysis'"
+    :document="document"
+  />
+
+  <Activities
+    v-else
+    ref="activities"
+    v-model:reload="reload"
+    v-model:tabIndex="tabIndex"
+    doctype="CRM Lead"
+    :docname="leadId"
+    :tabs="tabs"
+    @beforeSave="beforeStatusChange"
+    @afterSave="reloadResources"
+  />
+</template>
     </Tabs>
     <Resizer class="flex flex-col justify-between border-l" side="right">
       <div
@@ -275,6 +281,7 @@ import SLASection from '@/components/SLASection.vue'
 import CustomActions from '@/components/CustomActions.vue'
 import ConvertToDealModal from '@/components/Modals/ConvertToDealModal.vue'
 import EnrichFromWebsite from '@/components/EnrichFromWebsite.vue'
+  import Analysis from '@/components/Analysis/Analysis.vue'
 import {
   openWebsite,
   setupCustomizations,
@@ -605,6 +612,11 @@ const tabs = computed(() => {
       label: __('Attachments'),
       icon: AttachmentIcon,
     },
+    {
+  name: 'Analysis',
+  label: __('Analysis'),
+  icon: DetailsIcon,
+},
     {
       name: 'WhatsApp',
       label: __('WhatsApp'),
